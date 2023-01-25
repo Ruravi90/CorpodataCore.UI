@@ -25,7 +25,7 @@ export class TypeService {
   }
   getAllWhitOthers(nameModel: string): Observable<_Type[]> {
     return this.http.get<_Type[]>(this.url + nameModel).pipe(map(r => {
-        r.push({id: -1, name: 'Otro'});
+        //r.push({id: -1, name: 'Otro'});
         return r;
     }));
   }

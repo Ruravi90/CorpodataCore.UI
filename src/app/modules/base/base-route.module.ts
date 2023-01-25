@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from '../../views/dashboard/dashboard.component';
+import { BusinessGroupComponent } from '../../views/business-group/business-group.component';
 
 const routes: Routes = [
   {
@@ -9,14 +9,14 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'sale',
+        redirectTo: 'business-group',
         pathMatch: 'full',
       },
       {
-        path: 'dashboard',
-        component: DashboardComponent,
+        path: 'business-group',
+        component: BusinessGroupComponent,
         data: {
-          title: 'Dashboard'
+          title: 'Grupos empresariales'
         }
       },
     ]
@@ -27,6 +27,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BaseRoutingModule {
-// tslint:disable-next-line:eofline
-}
+export class BaseRoutingModule {}

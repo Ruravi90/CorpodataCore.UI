@@ -1,15 +1,26 @@
 // Angular
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 
 // Tabs Component
 
+import {
+  UtilitiesModule,
+  CardModule,
+  FormModule,
+  GridModule,
+  DropdownModule,
+  ButtonModule,
+  TableModule,
+  AccordionModule
+} from '@coreui/angular';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BaseRoutingModule } from './base-route.module';
-import { DashboardComponent } from '../../views/dashboard/dashboard.component';
+import { BusinessGroupComponent } from '../../views/business-group/business-group.component';
 
 @NgModule({
   imports: [
@@ -17,10 +28,19 @@ import { DashboardComponent } from '../../views/dashboard/dashboard.component';
     CommonModule,
     FormsModule,
     BaseRoutingModule,
-    NgSelectModule
+    NgSelectModule,
+    UtilitiesModule,
+    CardModule,
+    FormModule,
+    GridModule,
+    DropdownModule,
+    ButtonModule,
+    TableModule,
+    AccordionModule,
+    ModalModule
   ],
   declarations: [
-    DashboardComponent,
+    BusinessGroupComponent,
   ],
   providers: [
   ],

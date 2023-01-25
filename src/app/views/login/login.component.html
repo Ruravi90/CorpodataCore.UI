@@ -1,9 +1,9 @@
 <div class="bg-light min-vh-100 d-flex flex-row align-items-center app-body">
   <c-container>
     <c-row class="justify-content-center">
-      <c-col md="8">
+      <c-col md="5">
         <c-card-group>
-          <c-card class="p-4">
+          <c-card >
             <c-card-body>
               <form cForm  [formGroup]="formUser" (submit)="login()">
                 <h1>Login</h1>
@@ -27,14 +27,14 @@
                   />
                 </c-input-group>
                 <c-row>
-                  <c-col xs="6">
+                  <c-col xs="6" md="6" lg="6">
                     <button type="submit" cButton class="px-4" color="primary" >
                       <i *ngIf="isBusy" class="fa fa-spinner fa-pulse fa-fw"></i>
                       Login
                     </button>
                   </c-col>
-                  <c-col class="text-right" xs="6">
-                    <button cButton class="px-0" color="link">
+                  <c-col class="text-right" xs="6" md="6" lg="6">
+                    <button cButton class="px-0 float-end" color="link">
                       Forgot password?
                     </button>
                   </c-col>

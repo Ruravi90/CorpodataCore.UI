@@ -12,10 +12,18 @@ export class AuthenticateService{
       return this.http.post<any>(environment.urlApi + 'Admin/Authenticate/login', model).pipe(map((r:any)=> r));
   }
   isLogin(): boolean {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')!);
+    if (currentUser) {
+        return true;
+    }
     return false;
   }
   getToken():string{
-    return "";
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')!);
+    if (localStorage.getItem('currentUser')) {
+        return currentUser.token;
+    }
+    return '';
   }
   logout():Observable<any> {
     return this.http.post<any>(environment.urlApi + 'Admin/Authenticate/login',null).pipe(map((r:any)=> r));

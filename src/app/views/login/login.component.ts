@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
       return;
 
     this.isBusy = true;
-    this.user.username = this.formUser.value.username;
+    this.user.email = this.formUser.value.username;
     this.user.password = this.formUser.value.password;
 
     this.auth.login(this.user).subscribe(
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       next: (r:any)=>{
         this.isAuthorized = true;
         localStorage.setItem('currentUser', JSON.stringify(r));
-        this.router.navigate(['/page']);
+        this.router.navigate(['/system']);
       },
       error: ()=>{
         izitoast.error({

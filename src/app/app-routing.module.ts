@@ -1,6 +1,5 @@
 import { Injectable, NgModule } from '@angular/core';
 import { Routes, RouterModule,TitleStrategy, RouterStateSnapshot } from '@angular/router';
-import {Title} from "@angular/platform-browser";
 
 import { AlwaysAuthGuard } from './aunth/AlwaysAuthGuard';
 import { DefaultLayoutComponent } from './containers';
@@ -9,20 +8,6 @@ import { P404Component } from ".//views/error/404.component"
 import { P500Component } from './/views/error/500.component';
 import { LoginComponent } from './/views/login/login.component';
 import { RegisterComponent } from './/views/register/register.component';
-
-@Injectable({providedIn: 'root'})
-export class MyTitleStrategy extends TitleStrategy {
-  constructor(private readonly title: Title) {
-    super();
-  }
-
-  override updateTitle(routerState: RouterStateSnapshot) {
-    const title = this.buildTitle(routerState);
-    if (title !== undefined) {
-      this.title.setTitle(`Fase 2 | ${title}`);
-    }
-  }
-}
 
 
 const routes: Routes = [
@@ -65,13 +50,13 @@ const routes: Routes = [
     canActivate: [AlwaysAuthGuard],
     canActivateChild: [AlwaysAuthGuard],
     data: {
-      title: 'FASE2SPA'
+      title: 'CorpoData'
     },
     children: [
       {
-        path: 'page',
+        path: 'system',
         loadChildren: () =>
-          import('.//modules/base/base.module').then((m) => m.BaseModule),
+        import('.//modules/base/base.module').then((m) => m.BaseModule),
         data: {
           title: 'Principal'
         }
@@ -79,7 +64,7 @@ const routes: Routes = [
       {
         path: 'admin',
         loadChildren: () =>
-          import('.//modules/admin/admin.module').then((m) => m.AdminModule),
+        import('.//modules/admin/admin.module').then((m) => m.AdminModule),
         data: {
           title: 'Administración'
         }
@@ -87,7 +72,7 @@ const routes: Routes = [
       {
         path: 'catalog',
         loadChildren: () =>
-          import('.//modules/catalogs/catalogs.module').then((m) => m.CatalogsModule),
+        import('.//modules/catalogs/catalogs.module').then((m) => m.CatalogsModule),
         data: {
           title: 'Catalogos'
         }
@@ -111,9 +96,6 @@ const routes: Routes = [
     })
   ],
   exports: [RouterModule],
-  providers: [
-    {provide: TitleStrategy, useClass: MyTitleStrategy},
-  ]
 })
 export class AppRoutingModule {
 }

@@ -35,14 +35,16 @@ import {
   TypeService,
   UserService,
   PaginateService,
-  AuthenticateService
+  AuthenticateService,
+  ClientService
 } from './services';
 
 const APP_Services = [
   TypeService,
   UserService,
   PaginateService,
-  AuthenticateService
+  AuthenticateService,
+  ClientService
 ];
 
 // Import containers
