@@ -35,134 +35,174 @@ export class DefaultLayoutComponent {
   }
 
   getMenu() {
-    if (this.getRoles(['admin','agent'])) {
-      this.navItems.push(
-        {
-          name: 'Clientes',
-          url: '/page/clients',
-          icon: 'fas fa-users',
-          children: null
-        },
-        {
-          name: 'Punto de venta',
-          url: '/page/sale',
-          icon: 'fas fa-shopping-bag',
-          children: null
-        },
-        {
-          name: 'Ventas',
-          url: '/page/sales',
-          icon: 'fas fa-piggy-bank',
-          children: null
-        },
-        {
-          name: 'Paquetes',
-          url: '/page/packages',
-          icon: 'fas fa-cubes',
-          children: null
-        }
-      );
-    }
-    if (this.getRoles('admin')) {
-      this.navItems.push(
-        {
-          name: 'Balance',
-          url: '/page/box',
-          icon: 'fas fa-balance-scale',
-          children: null
-        },
-        {
-          name: 'Egresos',
-          icon: 'fas fa-store',
-          url: '/shopping',
-          children: [
-            {
-              name: 'Registrar egresos',
-              url: '/shopping/capture_purchase',
-              icon: 'fa fa-cart-plus'
-            },
-            {
-              name: 'Egresos por pagar',
-              url: '/shopping/to_pay',
-              icon: 'fas fa-cart-arrow-down'
-            }
-          ]
-        },
-        {
-          name: 'Administración',
-          icon: 'fas fa-gear',
-          url: '/admin',
-          children: [
-            {
-              name: 'Prov./Acreedores',
-              url: '/admin/creditors',
-              icon: 'fas fa-handshake'
-            },
-            {
-              name: 'Usuarios',
-              url: '/admin/users',
-              icon: 'fas fa-user-pen'
-            },
-            {
-              name: 'Agentes',
-              url: '/admin/agents',
-              icon: 'fas fa-user-gear'
-            },
-          ]
-        },
-        {
-          name: 'Inventario',
-          icon: 'fas fa-barcode',
-          url: '/inventory',
-          children: [
-            {
-              name: 'Productos',
-              url: '/inventory/products_inventory',
-              icon: 'fas fa-shapes'
-            }
-          ]
-        },
-        {
-          name: 'Catalogos',
-          icon: 'fas fa-database',
-          url: '/catalog',
-          children: [
-            {
-              name: 'Paquetes',
-              url: '/catalog/cat_packages',
-              icon: 'icofont icofont-sub-listing'
-            },
-            {
-              name: 'Productos',
-              url: '/catalog/cat_products',
-              icon: 'icofont icofont-sub-listing'
-            },
-            {
-              name: 'Referencias',
-              url: '/catalog/cat_references',
-              icon: 'icofont icofont-sub-listing'
-            },
-            {
-              name: 'Servicios',
-              url: '/catalog/cat_services',
-              icon: 'icofont icofont-sub-listing'
-            }
-            ,
-            {
-              name: 'Conceptos',
-              url: '/catalog/cat_concepts',
-              icon: 'icofont icofont-sub-listing'
-            }
-            ,
-            {
-              name: 'Tipo de gastos',
-              url: '/catalog/cat_expenses',
-              icon: 'icofont icofont-sub-listing'
-            }
-          ]
-        }
-      );
-    }
+    this.navItems.push(
+      {
+        name: 'Grupos empresariales',
+        url: '/app/modules/business-group',
+        icon: 'fas fa-users-viewfinder',
+        children: null
+      },
+      {
+        name: 'Socios',
+        url: '/app/modules/parnets',
+        icon: 'fas fa-handshake',
+        children: null
+      },
+      {
+        name: 'Archivos',
+        icon: 'pi pi-folder',
+        url: '/app/modules/files',
+        children: null
+      },
+      {
+        name: 'Obligaciones',
+        icon: 'fas fa-business-time',
+        url: '/app/modules/obligations',
+        children: null
+      },
+      {
+        name: 'Auditorias',
+        icon: 'fas fa-square-check',
+        url: '/app/modules/audit',
+        children: null
+      },
+      {
+        name: 'Gravamenes',
+        icon: 'fas fa-vault',
+        url: '/app/modules/encumbrances',
+        children: null
+      },
+      {
+        name: 'Vigilancia',
+        icon: 'fas fa-eye',
+        url: '/app/modules/vigilant',
+        children: null
+      },
+      {
+        name: 'Poderes (Escrituras)',
+        icon: 'fas fa-scale-balanced',
+        url: '/app/modules/company-power',
+        children: null
+      },
+      {
+        name: 'Enagenaciones',
+        icon: 'fas fa-money-bill-transfer',
+        url: '/app/modules/action-changes',
+        children: null
+      },
+      {
+        name: 'Transitorios',
+        icon: 'fas fa-folder-tree',
+        url: '/app/modules/transients',
+        children: [
+          {
+            name: 'Clausulas',
+            url: '/app/modules/transients/statutes',
+            icon: 'fas fa-file-lines'
+          },
+          {
+            name: 'Vigilancia',
+            url: '/app/modules/transients/vigilant',
+            icon: 'fas fa-eye'
+          },
+          {
+            name: 'Poderes',
+            url: '/app/modules/transients/power',
+            icon: 'fas fa-gavel'
+          },
+          {
+            name: 'Capital',
+            url: '/app/modules/transients/capital',
+            icon: 'fas fa-landmark'
+          },
+        ]
+      },
+      {
+        name: 'Actas',
+        icon: 'fas fa-folder-open',
+        url: '/app/modules/acts',
+        children: [
+          {
+            name: 'Asambleas',
+            url: '/app/modules/acts/assambly',
+            icon: 'fas fa-file-lines'
+          },
+          {
+            name: 'Consejo',
+            url: '/app/modules/acts/council',
+            icon: 'fas fa-file-lines'
+          }
+        ]
+      },
+      {
+        name: 'Contratos',
+        icon: 'fas fa-address-book',
+        url: '/app/modules/contract',
+        children: [
+          {
+            name: 'Primarios',
+            url: '/app/modules/contract/primary',
+            icon: 'fas fa-file-lines'
+          },
+          {
+            name: 'Secundarios',
+            url: '/app/modules/contract/secundary',
+            icon: 'fas fa-file-lines'
+          },
+        ]
+      },
+      {
+        name: 'Inmuebles',
+        icon: 'fas fa-house-chimney',
+        url: '/app/modules/property',
+        children: [
+          {
+            name: 'Inmuebles',
+            url: '/app/modules/property/',
+            icon: 'fas fa-house-chimney'
+          },
+          {
+            name: 'Proyectos',
+            url: '/app/modules/property/project',
+            icon: 'fas fa-hotel'
+          },
+        ]
+      },
+      {
+        name: 'Juicios',
+        icon: 'fas fa-gavel',
+        url: '/app/modules/trial',
+        children: [
+          {
+            name: 'Primarios',
+            url: '/app/modules/trial/primary',
+            icon: 'fas fa-file-lines'
+          },
+          {
+            name: 'Secundarios',
+            url: '/app/modules/trial/secundary',
+            icon: 'fas fa-file-lines'
+          },
+        ]
+      },
+      {
+        name: 'Propiedad Intelectual',
+        icon: 'fas fa-lightbulb',
+        url: '/app/modules/industrial-property',
+        children: [
+          {
+            name: 'Titulos',
+            url: '/app/modules/industrial-property/title',
+            icon: 'fas fa-file-lines'
+          },
+          {
+            name: 'Procesos',
+            url: '/app/modules/industrial-property/process',
+            icon: 'fas fa-file-lines'
+          },
+        ]
+      }
+    );
   }
 
   getRoles(p: any) {

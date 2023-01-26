@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       next: (r:any)=>{
         this.isAuthorized = true;
         localStorage.setItem('currentUser', JSON.stringify(r));
-        this.router.navigate(['/system']);
+        this.router.navigate(['/app/modules']);
       },
       error: ()=>{
         izitoast.error({

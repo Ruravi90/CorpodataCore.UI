@@ -45,7 +45,7 @@ const routes: Routes = [
     }
   },
   {
-    path: '',
+    path: 'app',
     component: DefaultLayoutComponent,
     canActivate: [AlwaysAuthGuard],
     canActivateChild: [AlwaysAuthGuard],
@@ -54,11 +54,11 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'system',
+        path: 'modules',
         loadChildren: () =>
         import('.//modules/base/base.module').then((m) => m.BaseModule),
         data: {
-          title: 'Principal'
+          title: 'Modulos'
         }
       },
       {

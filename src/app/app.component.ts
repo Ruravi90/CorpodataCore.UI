@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IconSetService } from '@coreui/icons-angular';
 import { freeSet } from '@coreui/icons';
 import { setTheme } from 'ngx-bootstrap/utils';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   // tslint:disable-next-line
@@ -10,6 +11,7 @@ import { setTheme } from 'ngx-bootstrap/utils';
 })
 export class AppComponent implements OnInit {
   constructor(
+    private primengConfig: PrimeNGConfig,
     public iconSet: IconSetService
   ) {
     iconSet.icons = { ...freeSet };
@@ -17,6 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.primengConfig.ripple = true;
     window.scrollTo(0, 0);
   }
 }

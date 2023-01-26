@@ -11,8 +11,8 @@ export class UserService {
     constructor(private http: HttpClient) {
     }
 
-    get(): Observable<User[]> {
-        return this.http.get<User[]>(this.url).pipe(map((r:any)=> r));
+    get(): Observable<Paginate[]> {
+        return this.http.get<Paginate[]>(this.url).pipe(map((r:any)=> r));
     }
     post(model: User): Observable<any> {
         return this.http.post<any>(this.url, model).pipe(map((r:any)=> r));

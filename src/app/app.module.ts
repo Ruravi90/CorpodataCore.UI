@@ -71,6 +71,8 @@ import {
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
+
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
 };
@@ -88,7 +90,8 @@ const APP_CONTAINERS = [
     P500Component,
     LoginComponent,
     RegisterComponent,
-    ...APP_CONTAINERS
+    ...APP_CONTAINERS,
+
   ],
   imports: [
     HttpClientModule,

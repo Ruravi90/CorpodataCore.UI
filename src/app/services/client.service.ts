@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable,map } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Client } from '../models';
+import { Client, Paginate } from '../models';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ClientService {
     private url: string = environment.urlApi + 'Clients';
     constructor(private http: HttpClient) {
     }
 
-    get(): Observable<Client[]> {
-        return this.http.get<Client[]>(this.url).pipe(map((r:any)=> r));
+    get(): Observable<Paginate[]> {
+        return this.http.get<Paginate[]>(this.url).pipe(map((r:any)=> r));
     }
     post(model: Client): Observable<any> {
         return this.http.post<any>(this.url, model).pipe(map((r:any)=> r));
