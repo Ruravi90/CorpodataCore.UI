@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BusinessGroupComponent } from '../../views/business-group/business-group.component';
-import { PropertiesComponent } from '../../views/properties/properties.component';
 import { AssemblyComponent } from '../../views/acts/assembly/assembly.component';
 import { CouncilComponent } from '../../views/acts/council/council.component';
 import { TransientPowersComponent } from '../../views/transients/powers/powers.component';
@@ -19,6 +18,7 @@ import { CompanyPowersComponent } from '../../views/company-powers/company-power
 import { ActionChangesComponent } from '../../views/action-changes/action-changes.component';
 import { ContractComponent } from '../../views/contract/contract/contract.component';
 import { AccessoriesComponent } from '../../views/contract/accessories/accessories.component';
+import { PropertiesComponent } from '../../views/property/properties/properties.component';
 import { ProjectsComponent } from '../../views/property/projects/projects.component';
 import { SecundaryComponent } from '../../views/trial/secundary/secundary.component';
 import { PrimaryComponent } from '../../views/trial/primary/primary.component';

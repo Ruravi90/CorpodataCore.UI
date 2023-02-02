@@ -1,2 +1,56 @@
 @import "./izitoast.scss";
 
+.p-inputtext.p-inputtext-sm {
+  font-size: 0.775rem;
+  padding: 0.55625rem 0.55625rem;
+}
+
+.p-inputtext-sm{
+  .p-dropdown-label{
+    font-size: 0.775rem;
+    padding: 0.55625rem 0.55625rem;
+  }
+}
+
+.p-inputtextarea.p-inputtext-sm{
+  padding:1.2rem 0.55625rem;
+}
+
+.p-calendar{
+  .p-component{
+    font-size: 0.775rem;
+    padding: 0.55625rem 0.55625rem;
+  }
+}
+
+.p-fileupload-basic{
+  .p-button.p-button-icon-only {
+    padding: 0.25rem 0.55rem;
+  }
+  .p-fileupload-choose-selected{
+    .p-button-label{
+      margin-left: 0.4rem;
+    }
+  }
+
+}
+
+.p-fileupload-advanced{
+  .p-fileupload-buttonbar{
+    padding: 0.75rem;
+    .p-button{
+      padding: 0.25rem 0.75rem;
+    }
+  }
+  .p-fileupload-content{
+    padding: 0.7rem 0.7rem;
+    .p-fileupload-row > div {
+      padding: 0.7rem 0.7rem;
+      .p-button-icon-only{
+        width: 2rem;
+        padding: 0.25rem 0.45rem;
+      }
+    }
+  }
+}
+

@@ -1,4 +1,6 @@
+import { IndustrialPropertyTitlesService } from './../../../services/industrial-property-titles.service';
 import { Component, OnInit } from '@angular/core';
+import { Paginate } from 'src/app/models';
 
 @Component({
   selector: 'app-titles',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TitlesComponent implements OnInit {
 
-  constructor() { }
+  paginate: Paginate = new Paginate();
+  constructor(private sIPT: IndustrialPropertyTitlesService,) {
+
+  }
 
   ngOnInit(): void {
+    this.sIPT.get().subscribe(
+      {
+        next: (r:any)=>{
+          this.paginate = r;
+        }
+      }
+    );
   }
 
 }

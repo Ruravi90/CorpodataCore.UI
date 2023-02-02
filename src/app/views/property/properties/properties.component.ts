@@ -1,4 +1,6 @@
+import { PropertiesService } from './../../../services/properties.service';
 import { Component, OnInit } from '@angular/core';
+import { Paginate } from 'src/app/models';
 
 @Component({
   selector: 'app-properties',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertiesComponent implements OnInit {
 
-  constructor() { }
+  paginate: Paginate = new Paginate();
+  constructor(private sP: PropertiesService,) {
+
+  }
 
   ngOnInit(): void {
+    this.sP.get().subscribe(
+      {
+        next: (r:any)=>{
+          this.paginate = r;
+        }
+      }
+    );
   }
 
 }

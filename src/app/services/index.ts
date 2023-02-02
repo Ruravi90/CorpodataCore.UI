@@ -8,7 +8,10 @@ export * from './company-powers.service';
 export * from './constitutive-acts.service';
 export * from './contracts.service';
 export * from './council-acts.service';
+export * from './documents.service';
 export * from './encumbrances.service';
+export * from './industrial-property-processes.service';
+export * from './industrial-property-titles.service';
 export * from './legal-powers.service';
 
 export * from './paginate.service';
@@ -16,7 +19,7 @@ export * from './paginate.service';
 export * from './partner.service';
 export * from './power-organs.service';
 export * from './property-projects.service'
-export * from './property-titles.service'
+export * from './properties.service'
 export * from './social-types.service';
 export * from './statutes.service';
 export * from './trials.service';

@@ -1,1 +1,150 @@
-<p>assembly works!</p>
+<p-card>
+  <p-panel [toggleable]="true" [collapsed]="true" expandIcon="pi pi-search" collapseIcon="pi pi-angle-up">
+    <ng-template pTemplate="header">
+      Asambleas
+    </ng-template>
+    <ng-template pTemplate="icons">
+      <button pButton class="p-panel-header-icon p-link" (click)="openModalDocument()" title="Title">
+          <span class="pi pi-plus"></span>
+      </button>
+    </ng-template>
+  </p-panel>
+
+  <p-table [value]="paginate.data" dataKey="name"  styleClass="p-datatable-sm" [tableStyle]="{'min-width': '30rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="document">Documentos<p-sortIcon field="document"></p-sortIcon></th>
+            <th pSortableColumn="date">Fecha<p-sortIcon field="date"></p-sortIcon></th>
+            <th pSortableColumn="type">Tipo<p-sortIcon field="type"></p-sortIcon></th>
+            <th pSortableColumn="description">Descripcion<p-sortIcon field="description"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-items>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </ng-template>
+  </p-table>
+</p-card>
+
+<p-dialog [(visible)]="modalDocument" [modal]="true"  [breakpoints]="{'960px': '85vw', '640px': '100vw'}" [style]="{width: '50vw'}" [maximizable]="true"
+    [draggable]="false" [resizable]="false">
+    <ng-template pTemplate="header">
+      Header content here
+    </ng-template>
+    <p-tabView>
+      <p-tabPanel header="Documento" [selected]="true">
+        <div class="row p-fluid p-grid my-2">
+          <div class="p-field col-md-12">
+            <span class="p-float-label">
+              <label for="template">Plantillas</label>
+              <p-dropdown inputId="template" class="p-inputtext-sm" optionLabel="name"></p-dropdown>
+            </span>
+          </div>
+        </div>
+        <div class="my-2">
+          <p-panel header="Documento" [toggleable]="false">
+            <div class="row p-fluid p-grid mt-1">
+              <div class="p-field col-md-6 col-ms-12">
+                <span class="p-float-label">
+                  <input type="text" id="Identifair" class="p-inputtext-sm" pInputText >
+                  <label for="Identifair">Identificador</label>
+                </span>
+              </div>
+              <div class="p-field col-md-6 col-ms-12">
+                <span class="p-float-label">
+                  <input type="text" id="externalreference" class="p-inputtext-sm" pInputText >
+                  <label for="externalreference">Referencia externa</label>
+                </span>
+              </div>
+            </div>
+            <div class="row p-fluid p-grid  mt-4">
+              <div class="p-field col-md-6 col-ms-12">
+                <span class="p-float-label">
+                  <label for="typeAct">Tipo</label>
+                  <p-dropdown inputId="typeAct" class="p-inputtext-sm" optionLabel="name"></p-dropdown>
+                </span>
+              </div>
+              <div class="p-field col-md-6 col-ms-12">
+                <span class="p-float-label">
+                  <p-calendar class="p-inputtext-sm" [showIcon]="true" inputId="icon" ></p-calendar>
+                  <label for="externalreference">Referencia externa</label>
+                </span>
+              </div>
+            </div>
+            <div class="row p-fluid p-grid  mt-4">
+              <div class="p-field col-md-12">
+                <span class="p-float-label">
+                  <textarea id="description" class="p-inputtext-sm" pInputTextarea  [autoResize]="true"></textarea>
+                  <label for="description">Descripcion</label>
+                </span>
+              </div>
+            </div>
+            <div class="row p-fluid p-grid mt-4">
+              <div class="p-field col-md-6 col-ms-12">
+                  <label for="typeAct">Documento fisico</label>
+                  <p-fileUpload mode="basic" name="myfile[]" url="./upload.php"></p-fileUpload>
+              </div>
+              <div class="p-field col-md-6 col-ms-12">
+                <div class="field-checkbox">
+                    <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
+                    <label for="binary">Instrumento público</label>
+                </div>
+              </div>
+            </div>
+          </p-panel>
+        </div>
+        <div class="my-2">
+          <p-panel header="Comparecientes" [toggleable]="true" [collapsed]="true">
+            <p-table [value]="paginate.data" dataKey="name"  styleClass="p-datatable-sm" [tableStyle]="{'min-width': '30rem','min-height': '15rem'}">
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th pSortableColumn="document">Calidad*<p-sortIcon field="document"></p-sortIcon></th>
+                      <th pSortableColumn="date">Nombre*<p-sortIcon field="date"></p-sortIcon></th>
+                      <th pSortableColumn="type">Paterno*<p-sortIcon field="type"></p-sortIcon></th>
+                      <th pSortableColumn="description">Materno<p-sortIcon field="description"></p-sortIcon></th>
+                      <th></th>
+                  </tr>
+                  <tr>
+                    <th ><p-dropdown class="p-inputtext-sm" optionLabel="name"></p-dropdown></th>
+                    <th ><input type="text" id="compName" class="p-inputtext-sm" pInputText ></th>
+                    <th ><input type="text" id="compPathern" class="p-inputtext-sm" pInputText ></th>
+                    <th ><input type="text" id="compMother" class="p-inputtext-sm" pInputText ></th>
+                    <th></th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-items>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+              </ng-template>
+            </p-table>
+          </p-panel>
+        </div>
+        <div class="my-2">
+          <p-panel header="Otros archivos" [toggleable]="true" [collapsed]="true">
+            <p-fileUpload name="myfile[]" url="./upload.php" [multiple]="true"></p-fileUpload>
+          </p-panel>
+        </div>
+
+      </p-tabPanel>
+      <p-tabPanel header="Instrumento público">
+
+      </p-tabPanel>
+      <p-tabPanel header="Contenido">
+          Content 3
+      </p-tabPanel>
+    </p-tabView>
+
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="modalDocument=false" label="Ok" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+

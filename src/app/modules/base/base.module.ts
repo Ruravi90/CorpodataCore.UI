@@ -7,10 +7,8 @@ import { NgModule } from '@angular/core';
 
 import {
   UtilitiesModule,
-  CardModule,
   FormModule,
   GridModule,
-  DropdownModule,
   AccordionModule
 } from '@coreui/angular';
 
@@ -18,13 +16,20 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {PanelModule} from 'primeng/panel';
 import {DialogModule} from 'primeng/dialog';
-
+import {TabViewModule} from 'primeng/tabview';
+import {CardModule} from 'primeng/card';
+import {DropdownModule} from 'primeng/dropdown';
+import {FileUploadModule} from 'primeng/fileupload';
+import {InputTextModule} from 'primeng/inputtext';
+import {CalendarModule} from 'primeng/calendar';
+import { InputTextareaModule} from 'primeng/inputtextarea';
+import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
+import {CheckboxModule} from 'primeng/checkbox';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BaseRoutingModule } from './base-route.module';
 
 import { BusinessGroupComponent } from '../../views/business-group/business-group.component';
-import { PropertiesComponent } from '../../views/properties/properties.component';
 import { AssemblyComponent } from '../../views/acts/assembly/assembly.component';
 import { CouncilComponent } from '../../views/acts/council/council.component';
 import { TransientPowersComponent } from '../../views/transients/powers/powers.component';
@@ -64,11 +69,17 @@ import { VigilantsComponent } from '../../views/vigilants/vigilants.component';
     TableModule,
     AccordionModule,
     DialogModule,
+    TabViewModule,
+    FileUploadModule,
+    InputTextModule,
+    CalendarModule,
+    TriStateCheckboxModule,
+    InputTextareaModule,
+    CheckboxModule,
     PanelModule
   ],
   declarations: [
     BusinessGroupComponent,
-    PropertiesComponent,
     AssemblyComponent,
     CouncilComponent,
     TransientPowersComponent,
@@ -89,6 +100,7 @@ import { VigilantsComponent } from '../../views/vigilants/vigilants.component';
     SecundaryComponent,
     PrimaryComponent,
     TitlesComponent,
+
     ProcessComponent
   ],
   providers: [

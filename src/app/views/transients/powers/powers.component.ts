@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Paginate } from 'src/app/models';
+import { PowerOrgansService } from 'src/app/services';
 
 @Component({
   selector: 'app-powers',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransientPowersComponent implements OnInit {
 
-  constructor() { }
+  paginate: Paginate = new Paginate();
+  constructor(private sPO: PowerOrgansService,) {
+
+  }
 
   ngOnInit(): void {
+    this.sPO.get().subscribe(
+      {
+        next: (r:any)=>{
+          this.paginate = r;
+        }
+      }
+    );
   }
 
 }

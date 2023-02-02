@@ -1,4 +1,6 @@
+import { TrialsService } from './../../../services/trials.service';
 import { Component, OnInit } from '@angular/core';
+import { Paginate } from 'src/app/models';
 
 @Component({
   selector: 'app-primary',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrimaryComponent implements OnInit {
 
-  constructor() { }
+  paginate: Paginate = new Paginate();
+  constructor(private sT: TrialsService,) {
+
+  }
 
   ngOnInit(): void {
+    this.sT.get().subscribe(
+      {
+        next: (r:any)=>{
+          this.paginate = r;
+        }
+      }
+    );
   }
 
 }

@@ -34,15 +34,8 @@ export class BusinessGroupComponent implements OnInit {
       {
         next: (r:any)=>{
           this.clients = r;
-          console.table(this.clients);
-        },
-        error: ()=>{
-          izitoast.error({
-            theme: 'dark',
-            title: 'Error en el servicio'
-          });
         }
       }
-    )
+    );
   }
 }

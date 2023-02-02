@@ -1,1 +1,32 @@
-<p>action-changes works!</p>
+<p-panel [toggleable]="true" [collapsed]="true" expandIcon="pi pi-search" collapseIcon="pi pi-angle-up">
+    <ng-template pTemplate="header">
+      Enagenaciones
+    </ng-template>
+    <ng-template pTemplate="icons">
+      <button pButton class="p-panel-header-icon p-link">
+          <span class="pi pi-plus"></span>
+      </button>
+    </ng-template>
+  </p-panel>
+
+  <p-table [value]="paginate.data" dataKey="name"  styleClass="p-datatable-sm" [tableStyle]="{'min-width': '30rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="sourcePartnerName">Socio vendedor<p-sortIcon field="nomenclature"></p-sortIcon></th>
+            <th pSortableColumn="targetPartnerName">Socio comprador<p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="name">Serie<p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="suscritoFijo">Suscrito<p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="pai">Pagado<p-sortIcon field="name"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-items>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </ng-template>
+  </p-table>
+

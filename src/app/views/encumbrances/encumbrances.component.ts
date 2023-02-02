@@ -1,4 +1,6 @@
+import { EncumbrancesService } from './../../services/encumbrances.service';
 import { Component, OnInit } from '@angular/core';
+import { Paginate } from 'src/app/models';
 
 @Component({
   selector: 'app-encumbrances',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncumbrancesComponent implements OnInit {
 
-  constructor() { }
+  paginate: Paginate = new Paginate();
+  constructor(private sE: EncumbrancesService,) {
+
+  }
 
   ngOnInit(): void {
+    this.sE.get().subscribe(
+      {
+        next: (r:any)=>{
+          this.paginate = r;
+        }
+      }
+    );
   }
 
 }

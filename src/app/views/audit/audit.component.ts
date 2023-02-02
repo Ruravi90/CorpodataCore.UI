@@ -1,4 +1,6 @@
+import { AuditsService } from './../../services/audits.service';
 import { Component, OnInit } from '@angular/core';
+import { Paginate } from 'src/app/models';
 
 @Component({
   selector: 'app-audit',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuditComponent implements OnInit {
 
-  constructor() { }
+  paginate: Paginate = new Paginate();
+  constructor(private sA: AuditsService,) {
+
+  }
 
   ngOnInit(): void {
+    this.sA.get().subscribe(
+      {
+        next: (r:any)=>{
+          this.paginate = r;
+        }
+      }
+    );
   }
 
 }

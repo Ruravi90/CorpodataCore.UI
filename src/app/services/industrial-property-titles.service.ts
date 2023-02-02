@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Paginate } from '../models';
+import { environment } from '../../environments/environment';
+import { Paginate } from '../models/paginate.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PropertyTitlesService {
-  private url: string = environment.urlApi + 'Properties';
+export class IndustrialPropertyTitlesService {
+  private url: string = environment.urlApi + 'IndustrialPropertyTitles';
   constructor(private http: HttpClient) {
   }
   get(): Observable<Paginate[]> {
